@@ -182,11 +182,19 @@
                 '$scope',
                 'TimelineService',
                 function ($scope,TimelineService) {
+                    var $win;
+
                     $scope.Timeline = TimelineService;
                     TimelineService.get();
 
-                    $(window).on('scroll',function () {
-                        console.log(1)
+                    $win = $(window)
+                    $win.on('scroll',function () {
+                        // console.log('$win.scrollTop()',$win.scrollTop())
+                        // console.log($win.scrollTop() - ($(document).height - $win.height))
+                        console.log($(window).height())
+                        if($win.scrollTop() - ($(document).height() - $win.height()) > -30) {
+                            console.log("2")
+                        }
                     })
             }]
         )
