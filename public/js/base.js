@@ -184,6 +184,10 @@
                 function ($scope,TimelineService) {
                     $scope.Timeline = TimelineService;
                     TimelineService.get();
+
+                    $(window).on('scroll',function () {
+                        console.log(1)
+                    })
             }]
         )
 })();
