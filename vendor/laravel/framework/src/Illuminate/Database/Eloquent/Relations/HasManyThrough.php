@@ -360,7 +360,7 @@ class HasManyThrough extends Relation
      * @param  int  $page
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'pages', $page = null)
     {
         $this->query->addSelect($this->getSelectColumns($columns));
 
@@ -375,7 +375,7 @@ class HasManyThrough extends Relation
      * @param  string  $pageName
      * @return \Illuminate\Contracts\Pagination\Paginator
      */
-    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page')
+    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'pages')
     {
         $this->query->addSelect($this->getSelectColumns($columns));
 

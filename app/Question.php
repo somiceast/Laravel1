@@ -70,7 +70,7 @@ class Question extends Model
         //skip条件 用于分页
 //        $skip = (rq('page') ? rq('page') -1 : 0)* $limit;
         list($limit,$skip) =
-            paginate(rq('page'),rq('limit'));
+            paginate(rq('pages'),rq('limit'));
 
 //        构建query并返回collection数据，laravel会自动转化数据为json
         $r = $this
@@ -114,6 +114,19 @@ class Question extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer');
+    }
+
+    public function answers_with_user_info()
+    {
+        return $this
+            ->answers()
+            ->with('user')
+            ->with('users');
     }
 
 }

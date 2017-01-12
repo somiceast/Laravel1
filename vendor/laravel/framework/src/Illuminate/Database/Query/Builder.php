@@ -1342,7 +1342,7 @@ class Builder
     }
 
     /**
-     * Set the limit and offset for a given page.
+     * Set the limit and offset for a given pages.
      *
      * @param  int  $page
      * @param  int  $perPage
@@ -1354,7 +1354,7 @@ class Builder
     }
 
     /**
-     * Constrain the query to the next "page" of results after a given ID.
+     * Constrain the query to the next "pages" of results after a given ID.
      *
      * @param  int  $perPage
      * @param  int  $lastId
@@ -1524,7 +1524,7 @@ class Builder
      * @param  int|null  $page
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = 15, $columns = ['*'], $pageName = 'pages', $page = null)
     {
         $page = $page ?: Paginator::resolveCurrentPage($pageName);
 
@@ -1548,7 +1548,7 @@ class Builder
      * @param  string  $pageName
      * @return \Illuminate\Contracts\Pagination\Paginator
      */
-    public function simplePaginate($perPage = 15, $columns = ['*'], $pageName = 'page')
+    public function simplePaginate($perPage = 15, $columns = ['*'], $pageName = 'pages')
     {
         $page = Paginator::resolveCurrentPage($pageName);
 

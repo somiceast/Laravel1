@@ -45,7 +45,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
     }
 
     /**
-     * Get the current page for the request.
+     * Get the current pages for the request.
      *
      * @param  int  $currentPage
      * @return int
@@ -70,7 +70,7 @@ class Paginator extends AbstractPaginator implements Arrayable, ArrayAccess, Cou
     }
 
     /**
-     * Get the URL for the next page.
+     * Get the URL for the next pages.
      *
      * @return string|null
      */

@@ -59,7 +59,7 @@ class ExceptionHandlerTest extends \PHPUnit_Framework_TestCase
         $handler->sendPhpResponse(new NotFoundHttpException('Foo'));
         $response = ob_get_clean();
 
-        $this->assertContains('Sorry, the page you are looking for could not be found.', $response);
+        $this->assertContains('Sorry, the pages you are looking for could not be found.', $response);
 
         $expectedHeaders = array(
             array('HTTP/1.0 404', true, null),

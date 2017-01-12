@@ -22,7 +22,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
     protected $total;
 
     /**
-     * The last available page.
+     * The last available pages.
      *
      * @var int
      */
@@ -53,7 +53,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
     }
 
     /**
-     * Get the current page for the request.
+     * Get the current pages for the request.
      *
      * @param  int  $currentPage
      * @param  int  $lastPage
@@ -67,7 +67,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
     }
 
     /**
-     * Get the URL for the next page.
+     * Get the URL for the next pages.
      *
      * @return string|null
      */
@@ -99,7 +99,7 @@ class LengthAwarePaginator extends AbstractPaginator implements Arrayable, Array
     }
 
     /**
-     * Get the last page.
+     * Get the last pages.
      *
      * @return int
      */

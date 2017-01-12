@@ -899,7 +899,7 @@ class Request
      * Suppose that an index.php file instantiates this request object:
      *
      *  * http://localhost/index.php         returns an empty string
-     *  * http://localhost/index.php/page    returns an empty string
+     *  * http://localhost/index.php/pages    returns an empty string
      *  * http://localhost/web/index.php     returns '/web'
      *  * http://localhost/we%20b/index.php  returns '/we%20b'
      *

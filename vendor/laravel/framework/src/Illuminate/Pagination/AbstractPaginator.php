@@ -281,7 +281,7 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
-     * Determine if there are enough items to split into multiple pages.
+     * Determine if there are enough items to split into multiple page.
      *
      * @return bool
      */

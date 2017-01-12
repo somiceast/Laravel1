@@ -2594,7 +2594,7 @@ EOT;
     Just search by the first five letters of the filename you want,
     as it appears in our Newsletters.
 
-    Information about Project Gutenberg (one page)
+    Information about Project Gutenberg (one pages)
 
     We produce about two million dollars for each hour we work.  The
     time it takes us, a rather conservative estimate, is fifty hours

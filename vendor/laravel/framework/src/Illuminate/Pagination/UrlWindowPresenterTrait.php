@@ -48,7 +48,7 @@ trait UrlWindowPresenterTrait
     }
 
     /**
-     * Get HTML wrapper for a page link.
+     * Get HTML wrapper for a pages link.
      *
      * @param  string  $url
      * @param  int  $page

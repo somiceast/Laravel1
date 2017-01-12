@@ -67,7 +67,7 @@ class BootstrapFourPresenter implements PresenterContract
     }
 
     /**
-     * Get HTML wrapper for an available page link.
+     * Get HTML wrapper for an available pages link.
      *
      * @param  string  $url
      * @param  int  $page
@@ -114,7 +114,7 @@ class BootstrapFourPresenter implements PresenterContract
     }
 
     /**
-     * Get the current page from the paginator.
+     * Get the current pages from the paginator.
      *
      * @return int
      */
@@ -124,7 +124,7 @@ class BootstrapFourPresenter implements PresenterContract
     }
 
     /**
-     * Get the last page from the paginator.
+     * Get the last pages from the paginator.
      *
      * @return int
      */

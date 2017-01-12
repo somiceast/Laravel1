@@ -25,6 +25,7 @@ class CommonController extends Controller
 
         //获取回答数据
         $answers= answer_ins()
+            ->with('question')
             ->with('users')
             ->with('user')
             ->limit($limit)
@@ -37,7 +38,7 @@ class CommonController extends Controller
         //合并数据
         $data = $questions->merge($answers);
         //将合并后的数据按时间排序
-        $data = $data->sortBy(function ($item) {
+        $data = $data->sortByDesc(function ($item) {
             return $item->created_at;
         });
         $data = $data->values()->all();

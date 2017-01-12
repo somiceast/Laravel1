@@ -5,7 +5,7 @@ namespace Illuminate\Contracts\Pagination;
 interface Paginator
 {
     /**
-     * Get the URL for a given page.
+     * Get the URL for a given pages.
      *
      * @param  int  $page
      * @return string
@@ -30,14 +30,14 @@ interface Paginator
     public function fragment($fragment = null);
 
     /**
-     * The the URL for the next page, or null.
+     * The the URL for the next pages, or null.
      *
      * @return string|null
      */
     public function nextPageUrl();
 
     /**
-     * Get the URL for the previous page, or null.
+     * Get the URL for the previous pages, or null.
      *
      * @return string|null
      */
@@ -65,14 +65,14 @@ interface Paginator
     public function lastItem();
 
     /**
-     * Determine how many items are being shown per page.
+     * Determine how many items are being shown per pages.
      *
      * @return int
      */
     public function perPage();
 
     /**
-     * Determine the current page being paginated.
+     * Determine the current pages being paginated.
      *
      * @return int
      */

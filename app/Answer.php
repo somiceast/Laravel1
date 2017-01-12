@@ -62,7 +62,10 @@ class Answer extends Model
             return ['status' => 0, 'msg' => 'id or question_id required'];
 //            检查参数中的id是否存在
         if (rq('id')) {
-            $answer = $this->find(rq('id'));
+            $answer = $this
+              ->with('user')
+              ->with('users')
+              ->find(rq('id'));
             if(!$answer)
                 return ['status' => 0, 'msg' => 'answer not exist'];
             return ['status' => 1, 'data' => $answer];
@@ -141,5 +144,8 @@ class Answer extends Model
             ->belongsToMany('APP\User')
             ->withPivot('vote')
             ->withTimestamps();
+    }
+    public function question(){
+        return $this->belongsTo('App\Question');
     }
 }

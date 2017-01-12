@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\StreamOutput;
  * A ProcOutputPager instance wraps a regular StreamOutput's stream. Rather
  * than writing directly to the stream, it shells out to a pager process and
  * gives that process the stream as stdout. This means regular *nix commands
- * like `less` and `more` can be used to page large amounts of output.
+ * like `less` and `more` can be used to pages large amounts of output.
  */
 class ProcOutputPager extends StreamOutput implements OutputPager
 {

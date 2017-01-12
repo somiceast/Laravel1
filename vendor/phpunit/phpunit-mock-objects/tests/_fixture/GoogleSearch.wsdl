@@ -78,7 +78,7 @@
     </xsd:schema>
   </types>
 
-  <!-- Messages for Google Web APIs - cached page, search, spelling. -->
+  <!-- Messages for Google Web APIs - cached pages, search, spelling. -->
 
   <message name="doGetCachedPage">
     <part name="key"            type="xsd:string"/>

@@ -84,20 +84,20 @@ class UrlWindow
         }
 
         // If the current page is very close to the beginning of the page range, we will
-        // just render the beginning of the page range, followed by the last 2 of the
+        // just render the beginning of the pages range, followed by the last 2 of the
         // links in this list, since we will not have room to create a full slider.
         if ($this->currentPage() <= $window) {
             return $this->getSliderTooCloseToBeginning($window);
         }
 
         // If the current page is close to the ending of the page range we will just get
-        // this first couple pages, followed by a larger window of these ending pages
+        // this first couple page, followed by a larger window of these ending page
         // since we're too close to the end of the list to create a full on slider.
         elseif ($this->currentPage() > ($this->lastPage() - $window)) {
             return $this->getSliderTooCloseToEnding($window);
         }
 
-        // If we have enough room on both sides of the current page to build a slider we
+        // If we have enough room on both sides of the current pages to build a slider we
         // will surround it with both the beginning and ending caps, with this window
         // of pages in the middle providing a Google style sliding paginator setup.
         return $this->getFullSlider($onEachSide);
@@ -201,7 +201,7 @@ class UrlWindow
     }
 
     /**
-     * Get the current page from the paginator.
+     * Get the current pages from the paginator.
      *
      * @return int
      */
@@ -211,7 +211,7 @@ class UrlWindow
     }
 
     /**
-     * Get the last page from the paginator.
+     * Get the last pages from the paginator.
      *
      * @return int
      */

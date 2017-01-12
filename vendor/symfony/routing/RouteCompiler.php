@@ -114,9 +114,9 @@ class RouteCompiler implements RouteCompilerInterface
                 // Find the next static character after the variable that functions as a separator. By default, this separator and '/'
                 // are disallowed for the variable. This default requirement makes sure that optional variables can be matched at all
                 // and that the generating-matching-combination of URLs unambiguous, i.e. the params used for generating the URL are
-                // the same that will be matched. Example: new Route('/{page}.{_format}', array('_format' => 'html'))
+                // the same that will be matched. Example: new Route('/{pages}.{_format}', array('_format' => 'html'))
                 // If {page} would also match the separating dot, {_format} would never match as {page} will eagerly consume everything.
-                // Also even if {_format} was not optional the requirement prevents that {page} matches something that was originally
+                // Also even if {_format} was not optional the requirement prevents that {pages} matches something that was originally
                 // part of {_format} when generating the URL, e.g. _format = 'mobile.html'.
                 $nextSeparator = self::findNextSeparator($followingPattern);
                 $regexp = sprintf(
@@ -127,7 +127,7 @@ class RouteCompiler implements RouteCompilerInterface
                 if (('' !== $nextSeparator && !preg_match('#^\{\w+\}#', $followingPattern)) || '' === $followingPattern) {
                     // When we have a separator, which is disallowed for the variable, we can optimize the regex with a possessive
                     // quantifier. This prevents useless backtracking of PCRE and improves performance by 20% for matching those patterns.
-                    // Given the above example, there is no point in backtracking into {page} (that forbids the dot) when a dot must follow
+                    // Given the above example, there is no point in backtracking into {pages} (that forbids the dot) when a dot must follow
                     // after it. This optimization cannot be applied when the next char is no real separator or when the next variable is
                     // directly adjacent, e.g. '/{x}{y}'.
                     $regexp .= '+';

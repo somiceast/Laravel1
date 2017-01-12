@@ -97,7 +97,7 @@ abstract class PageConstraint extends PHPUnit_Framework_Constraint
      */
     protected function getFailureDescription()
     {
-        return 'the page contains '.$this->toString();
+        return 'the pages contains '.$this->toString();
     }
 
     /**

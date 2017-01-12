@@ -453,7 +453,7 @@ class Builder
      *
      * @throws \InvalidArgumentException
      */
-    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'pages', $page = null)
     {
         $query = $this->toBase();
 
@@ -478,7 +478,7 @@ class Builder
      * @param  string  $pageName
      * @return \Illuminate\Contracts\Pagination\Paginator
      */
-    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page')
+    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'pages')
     {
         $page = Paginator::resolveCurrentPage($pageName);
 

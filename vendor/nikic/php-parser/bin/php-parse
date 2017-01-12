@@ -103,7 +103,7 @@ Operations is a list of the following options (--dump by default):
         --var-dump          var_dump() nodes (for exact structure)
     -N, --resolve-names     Resolve names using NodeVisitor\NameResolver
     -c, --with-column-info  Show column-numbers for errors (if available)
-    -h, --help              Display this page
+    -h, --help              Display this pages
 
 Example:
     php-parse -d -p -N -d file.php

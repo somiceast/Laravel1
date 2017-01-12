@@ -5,14 +5,14 @@ namespace Illuminate\Foundation\Testing\Constraints;
 class ReversePageConstraint extends PageConstraint
 {
     /**
-     * The page constraint instance.
+     * The pages constraint instance.
      *
      * @var \Illuminate\Foundation\Testing\Constraints\PageConstraint
      */
     protected $pageConstraint;
 
     /**
-     * Create a new reverse page constraint instance.
+     * Create a new reverse pages constraint instance.
      *
      * @param  \Illuminate\Foundation\Testing\Constraints\PageConstraint  $pageConstraint
      * @return void
@@ -23,7 +23,7 @@ class ReversePageConstraint extends PageConstraint
     }
 
     /**
-     * Reverse the original page constraint result.
+     * Reverse the original pages constraint result.
      *
      * @param  \Symfony\Component\DomCrawler\Crawler  $crawler
      * @return bool

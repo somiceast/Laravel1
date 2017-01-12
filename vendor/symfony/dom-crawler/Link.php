@@ -29,7 +29,7 @@ class Link
     protected $method;
 
     /**
-     * @var string The URI of the page where the link is embedded (or the base href)
+     * @var string The URI of the pages where the link is embedded (or the base href)
      */
     protected $currentUri;
 
@@ -37,7 +37,7 @@ class Link
      * Constructor.
      *
      * @param \DOMElement $node       A \DOMElement instance
-     * @param string      $currentUri The URI of the page where the link is embedded (or the base href)
+     * @param string      $currentUri The URI of the pages where the link is embedded (or the base href)
      * @param string      $method     The method to use for the link (get by default)
      *
      * @throws \InvalidArgumentException if the node is not a link

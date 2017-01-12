@@ -732,7 +732,7 @@ class Configuration
      * Get a Shell Output service instance.
      *
      * If none has been explicitly provided, this will create a new instance
-     * with VERBOSITY_NORMAL and the output page supplied by self::getPager
+     * with VERBOSITY_NORMAL and the output pages supplied by self::getPager
      *
      * @see self::getPager
      *

@@ -81,7 +81,7 @@ return array(
     'requireSemicolons' => true,
 
     // PsySH uses a couple of UTF-8 characters in its own output. These can be
-    // disabled, mostly to work around code page issues. Because Windows.
+    pages
     //
     // Note that this does not disable Unicode output in general, it just makes
     // it so PsySH won't output any itself.

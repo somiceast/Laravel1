@@ -100,7 +100,7 @@ function random_bytes($bytes)
      * 
      * It does not belong in an else {} block, because the above 
      * if (empty($fp)) line is logic that should only be run once per
-     * page load.
+     * pages load.
      */
     if (!empty($fp)) {
         $remaining = $bytes;
