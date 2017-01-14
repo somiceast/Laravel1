@@ -37,6 +37,8 @@ h2 {
     margin: 11px auto;
 }
 
+.container:after,
+.container:before,
 .clearfix:after,
 .clearfix:before
 {
@@ -86,22 +88,26 @@ button.primary,
 
 /*居中板块*/
 .container {
-    max-width: 1200px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
-
+    margin-top:15px;
 }
 
-
-.container.signup,
-.container.home,
-.container.user,
-.container.question-add,
-.container.reset-password,
-.container.login{
-    max-width: 750px;
-    margin-top: 15px;
+.navbar .container{
+    margin: 0 auto;
 }
+
+/*.container.signup,*/
+/*.container.home,*/
+/*.container.user,*/
+/*.container.question-add,*/
+/*.container.question-detail,*/
+/*.container.reset-password,*/
+/*.container.login{*/
+    /*max-width: 750px;*/
+    /*margin-top: 15px;*/
+/*}*/
 
 .feed-item-content .content-act{
     font-size: 12px;
@@ -330,4 +336,12 @@ h1, h2,.info_item
 
 .user.container .title{
     font-weight:700;
+}
+
+.question-detail h1{
+    margin-bottom:0;
+}
+
+.gray{
+    color: #999;
 }

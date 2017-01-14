@@ -48,6 +48,13 @@
               AnswerService.update_data(conf.id);
           })
         }
+        
+        me.reset_status =function () {
+            me.data = [];
+            me.current_page = 1;
+            me.no_more_data = 0;
+
+        }
       }
 
     ])
@@ -57,11 +64,10 @@
       'AnswerService',
       function ($scope,TimelineService,AnswerService) {
         var $win;
-
         $scope.Timeline = TimelineService;
-        TimelineService.get();
-
-        $win = $(window)
+          TimelineService.reset_status();
+          TimelineService.get();
+        $win = $(window);
         $win.on('scroll',function () {
           if($win.scrollTop() - ($(document).height() - $win.height()) > -500) {
             TimelineService.get();

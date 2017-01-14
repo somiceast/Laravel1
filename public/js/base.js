@@ -22,9 +22,9 @@
                 $stateProvider,
                 $urlRouterProvider)
             {
-                $interpolateProvider.startSymbol('[:')
-                $interpolateProvider.endSymbol(':]')
-                $urlRouterProvider.otherwise('/home')
+                $interpolateProvider.startSymbol('[:');
+                $interpolateProvider.endSymbol(':]');
+                $urlRouterProvider.otherwise('/home');
                 $stateProvider
                     .state('home', {
                         url:'/home',
