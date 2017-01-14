@@ -91,20 +91,31 @@ class User extends Model
         if(!rq('id'))
             return err('required id');
 
-        $get = ['username','avatar_url','intro'];
+      if (rq('id') === 'self') {
+        if (!$this->is_logged_in())
+          return err('login required');
+        $id = session('user_id');
+      } else
+        $id = rq('id');
 
-        $user = $this->find(rq('id'),$get);
+
+      $get = ['id','username','avatar_url','intro'];
+
+        $user = $this->find($id,$get);
         $data = $user->toArray();
 
-        $answer_count = answer_ins()->where('user_id',rq('id'))->count();
-        $question_count = question_ins()->where('user_id',rq('id'))->count();
+        $answer_count = answer_ins()->where('user_id',$id)->count();
+        $question_count = question_ins()->where('user_id',$id)->count();
 
         $data['answer_count'] = $answer_count;
         $data['question_count'] = $question_count;
-//        $answer_count= $user->answers()->count();
+      /*
+       * //        $answer_count= $user->answers()->count();
 //        $question_count= $user->questions()->count();
-        $status = ['status' =>1
-                    ,$data];
+//        $status = ['status' =>1           ,$data];
+
+       *
+//       */
         return suc($data);
     }
 

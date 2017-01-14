@@ -1,11 +1,17 @@
 ;(function(){
     'use strict';
+
+    window.his = {
+        id:parseInt($('html').attr('user_id'))
+    }
+    console.log(his);
+
     angular.module('usay', [
         'ui.router',
         'common',
-        'question',
         'user',
         'answer',
+        'question',
     ])
         .config([
             '$interpolateProvider',
@@ -39,11 +45,20 @@
                         abstract:true,
                         //抽象路由
                         url:'/question',
-                        template:'<div ui-view></div>'
+                        template:'<div ui-view></div>',
+                        controller:'QuestionController'
+                    })
+                    .state('question.detail', {
+                        url:'/detail/:id',
+                        templateUrl:'/tpl/page/question_detail'
                     })
                     .state('question.add', {
                         url:'/add',
                         templateUrl:'/tpl/page/question_add'
+                    })
+                    .state('user', {
+                        url:'/user/:id',
+                        templateUrl:'/tpl/page/user'
                     })
         }])
 

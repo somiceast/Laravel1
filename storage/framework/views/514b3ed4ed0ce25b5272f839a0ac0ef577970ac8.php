@@ -1,4 +1,5 @@
-<div class="home container card" ng-controller="HomeController">
+</html>
+<div class="home container card" ng-controller="HomeController" >
     <h1>最近动态</h1>
     <div class="hr"></div>
     <div class="item-set">
@@ -10,11 +11,15 @@
             <div class="feed-item-content">
                 <div ng-if="item.question_id" class="content-act">[: item.user.username :]添加了回答</div>
                 <div ng-if="!item.question_id" class="content-act">[: item.user.username :]添加了提问</div>
-                <div class="title">[: item.title :]</div>
+                <div ui-sref="question.detail({id:item.id})" class="title">[: item.title :]</div>
                 <div class="content-owner">[: item.user.username :]
                     <span class="desc">[:item.user.intro:]</span>
                 </div>
                 <div class="content-main">
+                    <div ui-sref="question.detail({id:item.id})" class="question_title">
+                        [: item.question.title :]
+                    </div>
+                    <br />
                     [: item.content :]
                 </div>
                 <div class="action-set">

@@ -16,11 +16,13 @@ function err($msg = null)
     return ['status' => 0, 'msg' => $msg];
 }
 
-function suc($data_to_merge = [])
+function suc($data_to_add = [])
 {
     $data = ['status' => 1,'data' => []];
-    if($data_to_merge)
-        $data['data'] = array_merge($data['data'], $data_to_merge);
+    if($data_to_add)
+        $data['data'] =
+          $data_to_add;
+//          array_merge($data['data'], $data_to_merge);
     return $data;
 }
 
@@ -147,6 +149,13 @@ Route::any('tpl/page/login', function (){
 });
 Route::any('tpl/page/question_add', function (){
     return view('page.question_add');
+});
+Route::any('tpl/page/question_detail', function (){
+    return view('page.question_detail');
+});
+
+Route::any('tpl/page/user', function (){
+    return view('page.user');
 });
 
 

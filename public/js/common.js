@@ -11,7 +11,7 @@
         me.current_page = 1;
         me.no_more_data = false;
 
-        /*首页数据*/
+        /*获取首页数据*/
         me.get = function (conf) {
           if(me.pending||me.no_more_data) return;
           me.pending = true;
@@ -22,8 +22,9 @@
               if(r.data.status) {
                 if(r.data.data.length){
                   me.data = me.data.concat(r.data.data);
+                  /*统计票数*/
+                  console.log('统计票数')
                   me.data = AnswerService.count_vote(me.data);
-                  console.info('timeline');
                   me.current_page++;
                 }
                 else
@@ -38,9 +39,11 @@
               me.pending = false;
             })
         }
+
+        /*在时间线中投票*/
         me.vote = function (conf) {
-          console.info('d');
           AnswerService.vote(conf).then(function (r) {
+            /*数据成功就更新*/
             if(r)
               AnswerService.update_data(conf.id);
           })
@@ -65,21 +68,21 @@
           }
         })
 
+        /* 监听回答数据变化，如果回答数据有变化，同时更新其他模块中的回答*/
         $scope.$watch(function ()
         {
           return AnswerService.data;
         },function (new_data, old_data) {
           var timeline_data = TimelineService.data;
           for(var k in new_data) {
-            console.log('123');
+            /*更新在时间线内回答数据*/
             for(var i = 0; i< timeline_data.length; i++) {
-              console.log('kkk');
               if(k == timeline_data[i].id) {
                 timeline_data[i] = new_data[k];
-                console.log(new_data[k])
               }
             }
           }
+          TimelineService.data = AnswerService.count_vote(TimelineService.data)
         },true)
       }]
     )

@@ -18,8 +18,11 @@
 			var votes, item = answers[i];
 			/*如果不是回答也没有users元素说明本条不是回答或
 			 * 回答没有任何票数*/
-			if (!item['question_id'] || item['pivot'])
+			if (!item['question_id'] )
 				continue;
+              me.data[item.id] = item;
+              if(!item['users'])
+                  continue;
 			  // me.data[item.id] = item;
 			  // if (!item['users']) continue;
 			/*每条回答的默认赞同票和反对票都为0*/
@@ -36,16 +39,28 @@
 					if(v['pivot'].vote ===2)
 						item.downvote_count++;
 				}
-		  }
-		  return answers;
+              console.log(answers[i]['content']);
+          }
+            console.log('票数数据get');
+            return answers;
 		}
 
+		/*投票数据请求*/
         me.vote = function (conf) {
-            console.log('a')
 			if (!conf.id || !conf.vote){
 				console.log('id and vote are required');
 				return;
 			}
+			var answer = me.data[conf.id],
+				users = answer.users;
+			    /*判断当前用户是否已经投过相同的票*/
+			for(var i = 0; i<users.length;i++) {
+				if(users[i].id == his.id &&
+					conf.vote == users[i].pivot.vote)
+					conf.vote = 3;
+			}
+
+			console.log(me.data[conf.id],'me.data[conf.id]');
 
 
 			return $http.post('api/answer/vote',conf)
@@ -58,6 +73,7 @@
                     return false;
 				})
         };
+        /*更新数据*/
         me.update_data=function (id) {
             return $http.post('api/answer/read',{id:id})
                 .then(function (r) {
@@ -70,6 +86,16 @@
         //         var id_set = input;
         }
 
+        me.read = function (params) {
+			return $http.post('/api/answer/read',params)
+                .then(function (r) {
+                    if(r.data.status){
+						me.data = angular.merge({},me.data,r.data.data)
+						return r.data.data;
+					}
+					return false
+                })
+        }
 	  //   me.add_or_update = function (question_id) {
 	  //     if (!question_id) {
 	  //       console.error('question_id is required');
@@ -213,7 +239,7 @@
 	//         AnswerService.add_comment()
 	//           .then(function (r) {
 	//             if (r)
-	//             {    
+	//             {
 	//               AnswerService.new_comment = {};
 	//               get_comment_list();
 	//             }

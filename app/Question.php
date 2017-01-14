@@ -56,12 +56,27 @@ class Question extends Model
             ['status' => 1]:
             ['status' => 0,'msg'=>"db update failed"];
     }
-    public function read(){
-        //请求参数中是否有id 如果有id直接返回id所在行
-        if (rq('id'))
-            return [
-                'status' => 1,
-                'data'=>$this->find(rq('id'))];
+    public function read()
+    {
+      //请求参数中是否有id 如果有id直接返回id所在行
+
+      if (rq('id')){
+        $r = $this
+          ->with('answers')
+          ->find(rq('id'));
+        return [
+          'status' => 1,
+          'data' => $r];
+
+      }
+
+      if (rq('user_id')) {
+
+      $user_id = rq('user_id') === 'self' ?
+        session('user_id') :
+        rq('user_id');
+      return $this->read_by_user_id($user_id);
+    }
         //反馈列表
 //		dd($this);
         //每页默认为15个，如果用户自定义，则采用用户要的参数
@@ -82,6 +97,17 @@ class Question extends Model
                 //->keyBy();//keyBy()方法提供了数组中的排布序列，有了键
         return ['status' => 1, 'data' => $r];
     }
+
+
+  public function read_by_user_id($user_id)
+  {
+    $user = user_ins()->find($user_id);
+    if(!$user){
+      return err('user not exists');
+    }
+    $r = $this->where('user_id', $user_id)->get()->keyBy('id');
+    return suc($r -> toArray());
+  }
 
     //删除问题api
     public function remove()
@@ -110,6 +136,8 @@ class Question extends Model
             ['status' => 0, 'msg' => 'db delete failed']
             ;
     }
+
+
 
     public function user()
     {

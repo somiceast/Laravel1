@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh" ng-app="usay">
+<html lang="zh" ng-app="usay" user_id="{{session('user_id')}}">
 <head>
     <meta charset="UTF-8">
     <title>
@@ -20,7 +20,7 @@
 <div class="navbar clearfix">
     <div class="container">
         <div class="fl">
-            <div class="navbar-item brand">Usay</div>
+            <div ui-sref="home" class="navbar-item brand">Usay</div>
             <form id="quick_ask" ng-submit="Question.go_add_quesion()" ng-controller="QuestionAddController">
                 <div class="navbar-item">
                     <input type="text" ng-model="Question.new_question.title">

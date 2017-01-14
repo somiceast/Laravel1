@@ -57,9 +57,19 @@ class Answer extends Model
 
     public function read()
     {
-        //检查参数中是否有问题id和问题id
-        if(!rq('id') && !rq('question_id'))
+        //检查参数中是否有回答id和问题id、用户id
+        if(!rq('id') && !rq('question_id') && !rq('user_id'))
             return ['status' => 0, 'msg' => 'id or question_id required'];
+
+        if(rq('user_id')){
+          $user_id = (rq('user_id') === "self") ?
+            session('user_id') :
+            rq('user_id');
+          $r = $this->read_by_user_id($user_id);
+          return $r;
+        }
+
+
 //            检查参数中的id是否存在
         if (rq('id')) {
             $answer = $this
@@ -81,6 +91,18 @@ class Answer extends Model
                 ->keyBy('id');
         return ['status' => 1, 'data' => $answers];
     }
+
+  public function read_by_user_id($user_id)
+  {
+    $user = user_ins()->find($user_id);
+    if(!$user){
+      return err('user not exists');
+    }
+    $r = $this
+      ->with('question')
+      ->where('user_id', $user_id)->get()->keyBy('id');
+    return suc($r -> toArray());
+  }
 
     public function remove()
     {
@@ -116,8 +138,10 @@ class Answer extends Model
         //answer是否存在
         if(!$answer)
             return ['status' => 0, 'msg' => 'answer not exist'];
-        //vote 1赞成2反对
-        $vote = rq('vote') <=1 ? 1: 2;
+        //vote 1赞成2反对3清空
+        $vote = rq('vote');
+      if ($vote != 1 && $vote != 2 && $vote != 3)
+        return ['status' => 0, 'msg'=>'invalid vote'];
 
         /*检查此用户是否在相同问题下投过票 投过就删*/
         $answer
@@ -126,12 +150,17 @@ class Answer extends Model
             ->where('user_id', session('user_id'))
             ->where('answer_id', rq('id'))
             ->delete();
+      if($vote==3)
+        return ['status' => 1  ];
+
         /*在表中增加数据*/
         $answer
             ->users()
             ->attach(session('user_id'), ['vote' => (int)rq('vote')]);
         return ['status' => 1  ];
     }
+
+
 
     public function user()
     {
@@ -145,6 +174,7 @@ class Answer extends Model
             ->withPivot('vote')
             ->withTimestamps();
     }
+
     public function question(){
         return $this->belongsTo('App\Question');
     }
