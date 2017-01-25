@@ -25,66 +25,6 @@
             [: value.content:]
             <div <?php /*ui-sref=""*/ ?> class="action-set">更新时间：
                 [: value.updated_at :]
-                <div class="comment-block">
-                    <div class="comment-item-set">
-                        <div class="rect"></div>
-                        <div class="hr"></div>
-                        <div class="comment-item clearfix">
-                            <div class="user">limi34234ng                                        </div>
-                            <div class="comment-content">
-                                This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                            </div>
-                        </div>
-                        <div class="comment-item clearfix">
-                            <div class="user">liming                                        </div>
-                            <div class="comment-content">
-                                This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                            </div>
-                        </div>
-                        <div class="comment-item clearfix">
-                            <div class="user">liming                                        </div>
-                            <div class="comment-content">
-                                This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                            </div>
-                        </div>
-                        <div class="comment-item clearfix">
-                            <div class="user">liming                                        </div>
-                            <div class="comment-content">
-                                This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-block">
-                        <div class="comment-item-set">
-                            <div class="rect"></div>
-                            <div class="hr"></div>
-                            <div class="comment-item clearfix">
-                                <div class="user">limi34234ng                                        </div>
-                                <div class="comment-content">
-                                    This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                                </div>
-                            </div>
-                            <div class="comment-item clearfix">
-                                <div class="user">liming                                        </div>
-                                <div class="comment-content">
-                                    This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                                </div>
-                            </div>
-                            <div class="comment-item clearfix">
-                                <div class="user">liming                                        </div>
-                                <div class="comment-content">
-                                    This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                                </div>
-                            </div>
-                            <div class="comment-item clearfix">
-                                <div class="user">liming                                        </div>
-                                <div class="comment-content">
-                                    This is known as a ‘fork bomb’. It will open more and more copies of itself, and those copies will open yet more copies. Your computer will be unusable within a couple of seconds after clicking the file and it will crash completely within a minute or two. Once you turn it back on it will be back to normal.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="hr"></div>
         </div>

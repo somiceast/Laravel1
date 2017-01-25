@@ -26,6 +26,8 @@ h2 {
     float: left;
 }
 .fr{
+    padding-top:5px;
+    padding-right:10px;
     float: right;
 }
 
@@ -50,6 +52,7 @@ h2 {
     display: inline-block;
     line-height: 2;
     padding: 2px 4px;
+    float: left;
 }
 
 .navbar{
@@ -81,7 +84,7 @@ button.primary,
 /*logo*/
 .navbar .brand{
     font-size: 30px;
-    padding-top: 0;
+    padding-top: 5px;
     line-height: 1;
     font-weight: 800;
 }
@@ -109,7 +112,8 @@ button.primary,
     /*margin-top: 15px;*/
 /*}*/
 
-.feed-item-content .content-act{
+.feed-item-content .content-act
+{
     font-size: 12px;
     font-weight: 500;
     color:#777
@@ -148,7 +152,6 @@ button.primary,
 
 }
 .comment-block{
-    display: none;
 }
 
 .comment-item-set .rect{
@@ -170,7 +173,8 @@ button.primary,
      font-size: 16px;
 }
  .comment-item .comment-content{
-     max-width: 90%;
+     margin-left:1%;
+     width: 89%;
      float: right;
  }
 
@@ -229,8 +233,9 @@ label{
 
 input,textarea
 {
-    max-width: 100%;
-    padding: 5px;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
     border-radius: 3px;
     border:1px solid rgba(0,0,0,.1);
     background: rgba(255,255,255,1);
@@ -243,6 +248,7 @@ input,textarea
 }
 
 button {
+
     border: 1px solid rgba(0, 0, 0, 0.1);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -342,6 +348,54 @@ h1, h2,.info_item
     margin-bottom:0;
 }
 
-.gray{
+.gray,
+.gray a
+{
     color: #999;
+    text-decoration: none;
+}
+
+.answer_add_form textarea{
+    height: 120px;
+    width:100%;
+}
+.cursor{
+    cursor: pointer;
+}
+
+.comment_form [type = 'submit'] {
+    width:9%;
+    margin-left:1%;
+}
+.comment_form input
+,[type = 'submit']
+{
+    float: left;
+
+}
+.comment_form input {
+    width:90%;
+}
+
+.well{
+    padding: 10px;
+    font-size: small;
+}
+
+.msg{
+    color: white;
+    text-shadow: 0 0 0.2em red
+
+}
+
+.gray_card{
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.kkk{
+    padding:7px 0 0 12px;
+}
+
+.content-act a {
+    color: #777;
 }

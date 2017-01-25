@@ -23,7 +23,7 @@
 
                     </textarea>
              </div>
-             <div class="input-group">
+             <div class="input-group clearfix">
                  <button
                          type="submit"
                          ng-disabled="question_add_form.$invalid"

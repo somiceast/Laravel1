@@ -3,9 +3,10 @@
   angular.module('common',[])
 
     .service('TimelineService',[
+      "$state",
       "$http",
       "AnswerService",
-      function ($http,AnswerService) {
+      function ($state,$http,AnswerService) {
         var me = this;
         me.data = [];
         me.current_page = 1;
@@ -42,11 +43,14 @@
 
         /*在时间线中投票*/
         me.vote = function (conf) {
-          AnswerService.vote(conf).then(function (r) {
-            /*数据成功就更新*/
-            if(r)
-              AnswerService.update_data(conf.id);
-          })
+          /*调用核心投票功能*/
+          var $r = AnswerService.vote(conf)
+          if ($r)
+            $r.then(function (r) {
+              /*如果投票成功 就更新AnswerService中的数据*/
+              if (r)
+                AnswerService.update_data(conf.id);
+            })
         }
         
         me.reset_status =function () {
@@ -55,6 +59,7 @@
             me.no_more_data = 0;
 
         }
+
       }
 
     ])

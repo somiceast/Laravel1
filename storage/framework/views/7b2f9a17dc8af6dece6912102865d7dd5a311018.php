@@ -29,9 +29,9 @@
                 <div ng-if="User.login_failed" class="input-error-set">
 用户名或密码有误
                 </div>
-                <div class="input-group">
+                <div class="input-group clearfix">
                     <button ng-disabled="login_form.username.$error.required || login_form.password.$error.required"
-                            class="primary"
+                            class="primary clearfix"
                             type="submit"
                                     >登录</button>
                 </div>

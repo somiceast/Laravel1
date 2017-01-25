@@ -122,7 +122,7 @@ Route::any('api/answer/read', function () {
 Route::any('api/answer/remove',function (){
     return answer_ins()->remove();
 });
-Route::any('api/answer/vote',function (){
+  Route::any('api/answer/vote',function (){
     return answer_ins()->vote();
 });
 
